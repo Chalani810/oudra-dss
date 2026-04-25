@@ -6,7 +6,7 @@ import wijesingheImg from '../../public/images/wijesinghe.jpeg';
 import dehigollaImg from '../../public/images/dehigolla.jpeg';
 import amarasooriyaImg from '../../public/images/amarasooriya.jpeg';
 import architectureImg from '../../public/images/architecture.jpeg';
-import ThennakoonImg from '../../public/images/thennakoon.jpeg';
+import ThennakoonImg from '../../public/images/Thennakoon.jpeg';
 
 interface FadeInProps {
   children: ReactNode;
