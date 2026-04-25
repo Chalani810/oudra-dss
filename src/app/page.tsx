@@ -375,7 +375,7 @@ export default function Home() {
               <FadeIn key={i} delay={i * 0.05}>
                 {/* --- FIXED A TAG HERE --- */}
                 <a 
-                  href={doc.file || '#'} 
+                  href={doc.file ? `/oudra-dss${doc.file}` : '#'}
                   download={!!doc.file} // Only trigger download if a file exists
                   target={doc.file ? "_blank" : undefined} // Open in new tab if needed
                   rel="noopener noreferrer"
