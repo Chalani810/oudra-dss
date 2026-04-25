@@ -1,9 +1,15 @@
 'use client';
+import { ReactNode } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-// --- REUSABLE ANIMATION WRAPPER ---
-const FadeIn = ({ children, delay = 0, direction = 'up' }) => {
+interface FadeInProps {
+  children: ReactNode;
+  delay?: number;
+  direction?: 'up' | 'down' | 'left' | 'right' | 'none';
+}
+
+const FadeIn = ({ children, delay = 0, direction = 'up' }: FadeInProps) => {
   const directions = {
     up: { y: 40, x: 0 },
     down: { y: -40, x: 0 },
