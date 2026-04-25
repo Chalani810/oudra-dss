@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import wijesingheImg from '../../public/images/wijesinghe.jpeg';
 import dehigollaImg from '../../public/images/dehigolla.jpeg';
 import amarasooriyaImg from '../../public/images/amarasooriya.jpeg';
-import thennakoonImg from '../../public/images/thennakoon.jpeg';
 import architectureImg from '../../public/images/architecture.JPEG';
 
 interface FadeInProps {
@@ -262,7 +261,7 @@ export default function Home() {
             <FadeIn direction="left">
               <div className="relative w-full rounded-[2.5rem] overflow-hidden border border-gray-200 shadow-[0_20px_60px_rgba(0,0,0,0.08)] group bg-gray-50 flex items-center justify-center min-h-[300px] md:min-h-[450px] p-6 order-1 lg:order-2 h-full">
                 <div className="absolute inset-0 bg-gradient-to-tr from-gray-50 to-white -z-10"></div>
-                <img src="/images/architecture.JPEG" alt="Oudra System Architecture" className="w-full h-auto object-contain transform group-hover:scale-[1.02] transition-transform duration-700 rounded-2xl" />
+                <img src={architectureImg} alt="Oudra System Architecture" className="w-full h-auto object-contain transform group-hover:scale-[1.02] transition-transform duration-700 rounded-2xl" />
                 <div className="absolute top-4 left-4 w-8 h-8 border-t-4 border-l-4 border-green-500/30 rounded-tl-lg"></div>
                 <div className="absolute bottom-4 right-4 w-8 h-8 border-b-4 border-r-4 border-green-500/30 rounded-br-lg"></div>
               </div>
