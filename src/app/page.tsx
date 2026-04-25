@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import wijesingheImg from '../../public/images/wijesinghe.jpeg';
 import dehigollaImg from '../../public/images/dehigolla.jpeg';
 import amarasooriyaImg from '../../public/images/amarasooriya.jpeg';
-import architectureImg from '../../public/images/architecture.JPEG';
+import architectureImg from '../../public/images/architecture.jpeg';
 
 interface FadeInProps {
   children: ReactNode;
