@@ -462,7 +462,7 @@ export default function Home() {
                       </div>
                     )}
                     <div className={`w-full aspect-[4/5] bg-gray-50 rounded-2xl mb-4 overflow-hidden border transition-all duration-300 ${member.isLeader ? 'border-green-200' : 'border-gray-100 group-hover:border-green-200'}`}>
-                      <img src={member.img} alt={member.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                      <img src={member.img?.src} alt={member.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
                     </div>
                     <div className="flex items-center justify-center gap-1.5 mb-1 w-full">
                       <h5 className="font-black text-gray-900 text-sm truncate">{member.name}</h5>
