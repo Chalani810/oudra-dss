@@ -444,10 +444,10 @@ export default function Home() {
             <FadeIn><h3 className="text-2xl font-black text-gray-900 mb-8 text-center">Team Members</h3></FadeIn>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { name: 'A.G.T. WIJESINGHE', id: 'IT22319142', role: 'Tree Tracking', img: '/images/wijesinghe.JPEG', isLeader: true, linkedin: '#' },
-                { name: 'D.N. DEHIGOLLA', id: 'IT22123886', role: 'IoT Network', img: '/images/dehigolla.JPEG', isLeader: false, linkedin: '#' },
-                { name: 'R.P.C.A. AMARASOORIYA', id: 'IT22123640', role: 'AI Detection', img: '/images/amarasooriya.JPEG', isLeader: false, linkedin: '#' },
-                { name: 'T.A.C.S. THENNAKOON', id: 'IT22310996', role: 'Blockchain', img: '/images/thennakoon.JPEG', isLeader: false, linkedin: '#' }
+                { name: 'A.G.T. WIJESINGHE', id: 'IT22319142', role: 'Tree Tracking', img: '/images/wijesinghe.jpeg', isLeader: true, linkedin: '#' },
+                { name: 'D.N. DEHIGOLLA', id: 'IT22123886', role: 'IoT Network', img: '/images/dehigolla.jpeg', isLeader: false, linkedin: '#' },
+                { name: 'R.P.C.A. AMARASOORIYA', id: 'IT22123640', role: 'AI Detection', img: '/images/amarasooriya.jpeg', isLeader: false, linkedin: '#' },
+                { name: 'T.A.C.S. THENNAKOON', id: 'IT22310996', role: 'Blockchain', img: '/images/thennakoon.jpeg', isLeader: false, linkedin: '#' }
               ].map((member, i) => (
                 <FadeIn key={i} delay={i * 0.1}>
                   <div className={`relative text-center bg-white p-5 md:p-6 rounded-3xl border transition-all duration-300 group flex flex-col items-center h-full ${member.isLeader ? 'border-green-400 shadow-lg shadow-green-500/10 hover:-translate-y-2' : 'border-gray-200 shadow-sm hover:border-green-300 hover:shadow-xl hover:-translate-y-2'}`}>
