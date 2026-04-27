@@ -355,7 +355,7 @@ export default function Home() {
         </div>
       </section>
 
-    {/* --- 8. DOWNLOADS --- */}
+   {/* --- 8. DOWNLOADS --- */}
       <section id="downloads" className="py-24 bg-gray-50 border-t border-gray-200">
         <div className="container mx-auto px-6 max-w-6xl">
           <FadeIn>
@@ -370,43 +370,91 @@ export default function Home() {
               { title: 'TAF (Topic Assessment)', type: 'PDF Document', file: '/documents/TAF_25-26J-157.pdf' },
               { title: 'Project Proposal', type: 'PDF Document', file: '/documents/Project Proposal.pdf' },
               { title: 'Research Paper', type: 'IEEE Format', file: '/documents/Research Paper.pdf' },
-              { title: 'Final Report', type: 'PDF Document', file: '/documents/Final Report.pdf' },
+              { title: 'Final Report', type: 'PDF Document', file: '/documents/Final Group FINALIZED.pdf' },
               { title: 'Proposal Presentation', type: 'Slides (PPTX)', file: '/documents/25-26J-157-Project Proposal Presentation.pptx' },
               { title: 'Progress Presentation I', type: 'Slides (PPTX)', file: '/documents/25-26J-157 PP1 Presentation Slides.pptx' },
               { title: 'Progress Presentation II', type: 'Slides (PPTX)', file: '/documents/25-26J-157 - PP2 presentation.pptx' },
-              { title: 'Final Presentation', type: 'Slides (PPTX)', file: '/documents/Final Presentation.pptx' }
+              { title: 'Final Presentation', type: 'Slides (PPTX)', file: '/documents/Final Presentation.pptx' },
+              
+              // --- NEW: CHECKLIST DOCUMENTS (MULTI-FILE) ---
+              { 
+                title: 'Checklist Documents', 
+                type: '4 PDF Reports', 
+                files: [
+                  { name: 'SRS Document', path: '/documents/SRS.pdf' },
+                  { name: 'PM Tool Report', path: '/documents/PM_Tool.pdf' },
+                  { name: 'UAT Report', path: '/documents/UAT Report.pdf' },
+                  { name: 'Business Canvas', path: '/documents/BMC.pdf' }
+                ] 
+              }
             ].map((doc, i) => (
               <FadeIn key={i} delay={i * 0.05}>
-                {/* --- FIXED A TAG HERE --- */}
-                <a 
-                  href={doc.file ? `/oudra-dss${doc.file}` : '#'}
-                  download={!!doc.file} // Only trigger download if a file exists
-                  target={doc.file ? "_blank" : undefined} // Open in new tab if needed
-                  rel="noopener noreferrer"
-                  className={`p-6 bg-white rounded-2xl border shadow-sm transition-all duration-300 flex flex-col justify-between h-full group ${
-                    doc.file 
-                    ? 'border-gray-200 hover:shadow-lg hover:border-green-300 hover:-translate-y-1 cursor-pointer' 
-                    : 'border-gray-100 opacity-60 cursor-not-allowed' // Grays out items that don't have files yet
-                  }`}
-                >
-                  <div>
-                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-4 border transition-colors ${
-                      doc.file 
-                      ? 'bg-gray-50 text-gray-400 border-gray-100 group-hover:bg-green-50 group-hover:text-green-500 group-hover:border-green-200'
-                      : 'bg-gray-50 text-gray-300 border-gray-100'
-                    }`}>
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                
+                {/* Condition: Multi-file Card vs Single-file Card */}
+                {doc.files ? (
+                  
+                  // --- MULTI-FILE CARD LAYOUT (For Checklist) ---
+                  <div className="p-6 bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg hover:border-green-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full group">
+                    <div>
+                      <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4 border bg-gray-50 text-gray-400 border-gray-100 group-hover:bg-green-50 group-hover:text-green-500 group-hover:border-green-200 transition-colors">
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                      </div>
+                      <h4 className="text-sm font-bold text-gray-900 mb-1 leading-snug">{doc.title}</h4>
+                      <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-4">{doc.type}</p>
                     </div>
-                    <h4 className="text-sm font-bold text-gray-900 mb-1 leading-snug">{doc.title}</h4>
-                    <p className="text-[10px] text-gray-500 uppercase tracking-wider">{doc.type}</p>
+                    
+                    <div className="flex flex-col space-y-2 mt-auto border-t border-gray-50 pt-4">
+                      {doc.files.map((subDoc, j) => (
+                        <a 
+                          key={j} 
+                          href={subDoc.path ? `/oudra-dss${subDoc.path}` : '#'}
+                          download={!!subDoc.path}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-between p-2 rounded-lg hover:bg-green-50 transition-colors group/link border border-transparent hover:border-green-100"
+                        >
+                          <span className="text-xs font-bold text-gray-600 group-hover/link:text-green-700 transition-colors">{subDoc.name}</span>
+                          <svg className="w-3.5 h-3.5 text-gray-300 group-hover/link:text-green-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        </a>
+                      ))}
+                    </div>
                   </div>
-                  <div className="mt-6 flex items-center justify-between border-t border-gray-50 pt-4">
-                    <span className={`text-xs font-bold transition-colors ${doc.file ? 'text-gray-400 group-hover:text-green-600' : 'text-gray-300'}`}>
-                      {doc.file ? 'Download' : 'Coming Soon'}
-                    </span>
-                    <svg className={`w-4 h-4 transition-colors ${doc.file ? 'text-gray-300 group-hover:text-green-500' : 'text-gray-200'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                  </div>
-                </a>
+
+                ) : (
+
+                  // --- STANDARD SINGLE-FILE CARD LAYOUT ---
+                  <a 
+                    href={doc.file ? `/oudra-dss${doc.file}` : '#'}
+                    download={!!doc.file} 
+                    target={doc.file ? "_blank" : undefined} 
+                    rel="noopener noreferrer"
+                    className={`p-6 bg-white rounded-2xl border shadow-sm transition-all duration-300 flex flex-col justify-between h-full group ${
+                      doc.file 
+                      ? 'border-gray-200 hover:shadow-lg hover:border-green-300 hover:-translate-y-1 cursor-pointer' 
+                      : 'border-gray-100 opacity-60 cursor-not-allowed' 
+                    }`}
+                  >
+                    <div>
+                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-4 border transition-colors ${
+                        doc.file 
+                        ? 'bg-gray-50 text-gray-400 border-gray-100 group-hover:bg-green-50 group-hover:text-green-500 group-hover:border-green-200'
+                        : 'bg-gray-50 text-gray-300 border-gray-100'
+                      }`}>
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                      </div>
+                      <h4 className="text-sm font-bold text-gray-900 mb-1 leading-snug">{doc.title}</h4>
+                      <p className="text-[10px] text-gray-500 uppercase tracking-wider">{doc.type}</p>
+                    </div>
+                    <div className="mt-6 flex items-center justify-between border-t border-gray-50 pt-4">
+                      <span className={`text-xs font-bold transition-colors ${doc.file ? 'text-gray-400 group-hover:text-green-600' : 'text-gray-300'}`}>
+                        {doc.file ? 'Download' : 'Coming Soon'}
+                      </span>
+                      <svg className={`w-4 h-4 transition-colors ${doc.file ? 'text-gray-300 group-hover:text-green-500' : 'text-gray-200'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    </div>
+                  </a>
+
+                )}
+
               </FadeIn>
             ))}
           </div>
