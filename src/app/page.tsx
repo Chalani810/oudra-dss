@@ -7,6 +7,9 @@ import dehigollaImg from '../../public/images/dehigolla.jpeg';
 import amarasooriyaImg from '../../public/images/amarasooriya.jpeg';
 import architectureImg from '../../public/images/architecture.jpeg';
 import ThennakoonImg from '../../public/images/Thennakoon.jpeg';
+import ChathurangikaImg from '../../public/images/Chathurangika.jpg';
+import NarmadaImg from '../../public/images/Narmada.jpg';
+
 
 interface FadeInProps {
   children: ReactNode;
@@ -424,8 +427,8 @@ export default function Home() {
             <FadeIn><h3 className="text-2xl font-black text-gray-900 mb-8 text-center">Supervisors</h3></FadeIn>
             <div className="grid sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {[
-                { name: 'Ms. Chathurangika Kahandawarachchi', role: 'Supervisor', img: '/images/supervisor.jpg', linkedin: '#' },
-                { name: 'Ms. Narmada Gamage', role: 'Co-Supervisor', img: '/images/co-supervisor.jpg', linkedin: '#' }
+               { name: 'Ms. Chathurangika Kahandawarachchi', role: 'Supervisor', img: ChathurangikaImg, linkedin: '#' },
+                { name: 'Ms. Narmada Gamage', role: 'Co-Supervisor', img: NarmadaImg, linkedin: '#' }
               ].map((person, i) => (
                 <FadeIn key={i} delay={i * 0.1}>
                   <div className="flex items-center space-x-6 p-6 bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-md hover:border-green-300 transition-all group relative">
