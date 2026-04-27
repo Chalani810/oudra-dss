@@ -314,8 +314,7 @@ export default function Home() {
               { id: 'checklist', title: 'Checklist', date: 'April 2026', marks: '2%', desc: 'Includes commercialization plan, PM tool report, UAT, and business canvas.', isCompleted: false },
               { id: 'log-book', title: 'Log Book', date: 'April 2026', marks: '2%', desc: 'Validates project progress with supervisor comments and status documents.', isCompleted: false },
               { id: 'website-assessment', title: 'Website Assessment', date: 'April 2026', marks: '2%', desc: 'Website promotes the research project and reveals all related project details.', isCompleted: false },
-              { id: 'research-paper', title: 'Research Paper', date: 'May 2026', marks: '16%', desc: 'Describes the project’s contribution to existing knowledge and literature review.', isCompleted: false },
-              { id: 'final-thesis', title: 'Final Thesis Submission', date: 'May 2026', marks: '-', desc: 'The comprehensive and finalized thesis document is formally submitted for university archiving and final evaluation.', isCompleted: false }
+              { id: 'research-paper', title: 'Research Paper', date: 'May 2026', marks: '10%', desc: 'Describes the project’s contribution to existing knowledge and literature review.', isCompleted: false }
             ].map((milestone, i) => (
               <FadeIn key={i} direction={i % 2 === 0 ? 'right' : 'left'}>
                 {/* Added id here and scroll-mt-28 so the sticky nav doesn't cover the title when anchored */}
