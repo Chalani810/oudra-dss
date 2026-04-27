@@ -433,7 +433,7 @@ export default function Home() {
                 <FadeIn key={i} delay={i * 0.1}>
                   <div className="flex items-center space-x-6 p-6 bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-md hover:border-green-300 transition-all group relative">
                     <div className="w-24 h-24 rounded-2xl bg-gray-50 shrink-0 overflow-hidden border border-gray-200 group-hover:border-green-200 transition-colors">
-                      <img src={person.img} alt={person.name} className="w-full h-full object-cover object-top" />
+                     <img src={person.img?.src} alt={person.name} className="w-full h-full object-cover object-top" />
                     </div>
                     <div className="flex-grow">
                       <h4 className="text-lg font-black text-gray-900 leading-tight mb-1 pr-8">{person.name}</h4>
