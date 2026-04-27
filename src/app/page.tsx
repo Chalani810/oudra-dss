@@ -475,13 +475,13 @@ export default function Home() {
             <FadeIn><h3 className="text-2xl font-black text-gray-900 mb-8 text-center">Supervisors</h3></FadeIn>
             <div className="grid sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {[
-               { name: 'Ms. Chathurangika Kahandawarachchi', role: 'Supervisor', img: ChathurangikaImg, linkedin: '#' },
-                { name: 'Ms. Narmada Gamage', role: 'Co-Supervisor', img: NarmadaImg, linkedin: '#' }
+                { name: 'Ms. Chathurangika Kahandawarachchi', role: 'Supervisor', img: ChathurangikaImg, linkedin: 'https://www.linkedin.com/in/chathurangika-kahandawaarachchi-441ab8178/' },
+                { name: 'Ms. Narmada Gamage', role: 'Co-Supervisor', img: NarmadaImg, linkedin: 'https://www.linkedin.com/in/narmada-dushmanthi/' }
               ].map((person, i) => (
                 <FadeIn key={i} delay={i * 0.1}>
                   <div className="flex items-center space-x-6 p-6 bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-md hover:border-green-300 transition-all group relative">
                     <div className="w-24 h-24 rounded-2xl bg-gray-50 shrink-0 overflow-hidden border border-gray-200 group-hover:border-green-200 transition-colors">
-                     <img src={person.img?.src} alt={person.name} className="w-full h-full object-cover object-top" />
+                      <img src={person.img?.src} alt={person.name} className="w-full h-full object-cover object-top" />
                     </div>
                     <div className="flex-grow">
                       <h4 className="text-lg font-black text-gray-900 leading-tight mb-1 pr-8">{person.name}</h4>
@@ -500,10 +500,10 @@ export default function Home() {
             <FadeIn><h3 className="text-2xl font-black text-gray-900 mb-8 text-center">Team Members</h3></FadeIn>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { name: 'A.G.T. WIJESINGHE', id: 'IT22319142', role: 'Tree Tracking', img: wijesingheImg, isLeader: true, linkedin: '#' },
-                { name: 'D.N. DEHIGOLLA', id: 'IT22123886', role: 'IoT Network', img: dehigollaImg, isLeader: false, linkedin: '#' },
-                { name: 'R.P.C.A. AMARASOORIYA', id: 'IT22123640', role: 'AI Detection', img: amarasooriyaImg, isLeader: false, linkedin: '#' },
-                { name: 'T.A.C.S. THENNAKOON', id: 'IT22310996', role: 'Blockchain',img: ThennakoonImg, isLeader: false, linkedin: '#' }
+                { name: 'A.G.T. WIJESINGHE', id: 'IT22319142', role: 'Tree Tracking', img: wijesingheImg, isLeader: true, linkedin: 'https://www.linkedin.com/in/thathsaraniwijesinghe/' },
+                { name: 'D.N. DEHIGOLLA', id: 'IT22123886', role: 'IoT Network', img: dehigollaImg, isLeader: false, linkedin: 'https://www.linkedin.com/in/navodya-dehigolla-82bb45287/' },
+                { name: 'R.P.C.A. AMARASOORIYA', id: 'IT22123640', role: 'AI Detection', img: amarasooriyaImg, isLeader: false, linkedin: 'https://www.linkedin.com/in/chalani-amarasooriya-531524285/' },
+                { name: 'T.A.C.S. THENNAKOON', id: 'IT22310996', role: 'Blockchain',img: ThennakoonImg, isLeader: false, linkedin: 'https://www.linkedin.com/in/sahanya-thennakoon-83996a2a9/' }
               ].map((member, i) => (
                 <FadeIn key={i} delay={i * 0.1}>
                   <div className={`relative text-center bg-white p-5 md:p-6 rounded-3xl border transition-all duration-300 group flex flex-col items-center h-full ${member.isLeader ? 'border-green-400 shadow-lg shadow-green-500/10 hover:-translate-y-2' : 'border-gray-200 shadow-sm hover:border-green-300 hover:shadow-xl hover:-translate-y-2'}`}>
