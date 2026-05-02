@@ -47,7 +47,7 @@ export default function Home() {
     { name: 'MongoDB Atlas', category: 'Database' },
     { name: 'ESP32 IoT Nodes', category: 'Hardware' },
     { name: 'Polygon Blockchain', category: 'Security' },
-    { name: 'MobileNetV2 (AI)', category: 'Machine Learning' }
+    { name: 'PyTorch (ResNet50 / MobileNetV2)', category: 'Machine Learning' }
   ];
 
   const projectReferences = [
@@ -78,13 +78,27 @@ export default function Home() {
       title: 'Monitoring spatiotemporal expansion dynamics of short-rotation eucalyptus plantations over large scales using Landsat time-series data',
       year: '2024',
       category: 'Geospatial Mapping'
+    },
+    {
+      id: 5,
+      authors: 'Y. Zheng et al.',
+      title: 'GBCD-YOLO: A High-Precision and Real-Time Lightweight Model for Wood Defect Detection',
+      year: '2024',
+      category: 'Computer Vision'
+    },
+    {
+      id: 6,
+      authors: 'B. Wang et al.',
+      title: 'Wood ViT: the Vision Transformer for Segmenting and Identifying Wood Micro-structure',
+      year: '2024',
+      category: 'Deep Learning'
     }
   ];
 
  return (
     <main className="flex flex-col min-h-screen overflow-hidden">
       
-{/* --- 1. HERO SECTION --- */}
+      {/* --- 1. HERO SECTION --- */}
       <section id="home" className="relative flex flex-col items-center justify-center min-h-screen text-center px-6 overflow-hidden bg-transparent pt-20">
         
         {/* Main Title */}
@@ -145,34 +159,44 @@ export default function Home() {
             </div>
           </FadeIn>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <FadeIn delay={0.1}>
-              <div className="p-10 bg-white rounded-3xl border border-gray-200 hover:border-gray-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
+              <div className="p-8 bg-white rounded-3xl border border-gray-200 hover:border-gray-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
                 <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center mb-6 border border-gray-100 shadow-sm text-gray-500 group-hover:text-black transition-colors">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                 </div>
                 <h3 className="text-xl font-black text-gray-900 mb-4">Traditional Assessment</h3>
-                <p className="text-sm text-gray-600 leading-relaxed flex-grow">Current industry practices heavily rely on manual logbooks, subjective human evaluation, and slow lab-based resin tests. These methods are highly reactive and invasive, often causing physical damage to the trees.</p>
+                <p className="text-sm text-gray-600 leading-relaxed flex-grow">Current industry practices heavily rely on manual logbooks, subjective human evaluation, and invasive resin tests via trunk cutting. These methods are highly reactive, often causing permanent biological trauma to the trees.</p>
               </div>
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <div className="p-10 bg-white rounded-3xl border border-gray-200 hover:border-gray-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
+              <div className="p-8 bg-white rounded-3xl border border-gray-200 hover:border-gray-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
                 <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center mb-6 border border-gray-100 shadow-sm text-gray-500 group-hover:text-black transition-colors">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                 </div>
-                <h3 className="text-xl font-black text-gray-900 mb-4">Technological Disconnection</h3>
-                <p className="text-sm text-gray-600 leading-relaxed flex-grow">While some farms use generic IoT tracking, these systems lack specific optimizations for agarwood's unique growth factors. Furthermore, there is a complete absence of digital, end-to-end traceability for export certification.</p>
+                <h3 className="text-xl font-black text-gray-900 mb-4">Technological Disconnect</h3>
+                <p className="text-sm text-gray-600 leading-relaxed flex-grow">While some farms use generic agricultural IoT, these systems lack specific optimizations for agarwood's unique growth factors. There is also a complete absence of digital, end-to-end traceability for export certification.</p>
               </div>
             </FadeIn>
 
             <FadeIn delay={0.3}>
-              <div className="p-10 bg-red-50/30 rounded-3xl border border-red-100 hover:border-red-200 hover:shadow-[0_8px_30px_rgb(239,68,68,0.06)] hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
+              <div className="p-8 bg-green-50/30 rounded-3xl border border-green-100 hover:border-green-300 hover:shadow-[0_8px_30px_rgb(34,197,94,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
+                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-6 border border-green-100 shadow-sm text-green-500 group-hover:text-green-600 transition-colors">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h3 className="text-xl font-black text-gray-900 mb-4">AI Diagnostics Gap</h3>
+                <p className="text-sm text-gray-600 leading-relaxed flex-grow">Recent advances in computer vision provide non-destructive alternatives to manual sampling. However, existing models struggle with unstructured field data. Oudra bridges this gap by deploying a PyTorch-based, two-stage deep learning pipeline directly to mobile edge devices.</p>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.4}>
+              <div className="p-8 bg-red-50/30 rounded-3xl border border-red-100 hover:border-red-200 hover:shadow-[0_8px_30px_rgb(239,68,68,0.06)] hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
                 <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-6 border border-red-100 shadow-sm text-red-400 group-hover:text-red-600 transition-colors">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"></path></svg>
                 </div>
                 <h3 className="text-xl font-black text-gray-900 mb-4">Economic Impact</h3>
-                <p className="text-sm text-gray-600 leading-relaxed flex-grow">Due to these subjective processes, <span className="font-bold text-red-500">over 40% of agarwood harvests occur prematurely</span>. This results in severe revenue loss and prevents Sri Lankan farmers from commanding premium prices in international markets.</p>
+                <p className="text-sm text-gray-600 leading-relaxed flex-grow">Due to subjective, destructive processes, <span className="font-bold text-red-500">over 40% of agarwood harvests occur prematurely</span>. This results in severe revenue loss and prevents farmers from commanding premium prices in international markets.</p>
               </div>
             </FadeIn>
           </div>
@@ -340,9 +364,9 @@ export default function Home() {
               { id: 'progress-presentation-ii', title: 'Progress Presentation II', date: 'March 2026', marks: '18%', desc: 'Demonstrates 90% completion, along with poster presentation and analysis.', isCompleted: true },
               { id: 'final-report', title: 'Final Report & Group Report', date: 'April 2026', marks: '19%', desc: 'Evaluates the completed project including individual, group, and final reports.', isCompleted: true },
               { id: 'final-presentation', title: 'Final Presentation & Viva', date: 'April 2026', marks: '20%', desc: 'Individual viva to assess each member’s contribution to the research project.', isCompleted: true },
-              { id: 'checklist', title: 'Checklist', date: 'April 2026', marks: '2%', desc: 'Includes commercialization plan, PM tool report, UAT, and business canvas.', isCompleted: false },
+              { id: 'checklist', title: 'Checklist', date: 'April 2026', marks: '2%', desc: 'Includes commercialization plan, PM tool report, UAT, and business canvas.', isCompleted: true },
               { id: 'log-book', title: 'Log Book', date: 'April 2026', marks: '2%', desc: 'Validates project progress with supervisor comments and status documents.', isCompleted: false },
-              { id: 'website-assessment', title: 'Website Assessment', date: 'April 2026', marks: '2%', desc: 'Website promotes the research project and reveals all related project details.', isCompleted: false },
+              { id: 'website-assessment', title: 'Website Assessment', date: 'April 2026', marks: '2%', desc: 'Website promotes the research project and reveals all related project details.', isCompleted: true },
               { id: 'research-paper', title: 'Research Paper', date: 'May 2026', marks: '10%', desc: 'Describes the project’s contribution to existing knowledge and literature review.', isCompleted: false }
             ].map((milestone, i) => (
               <FadeIn key={i} direction={i % 2 === 0 ? 'right' : 'left'}>
@@ -540,7 +564,9 @@ export default function Home() {
                         <svg className="w-[14px] h-[14px]" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                       </a>
                     </div>
-                    <p className="text-[10px] text-gray-500 font-mono mb-4">{member.email}</p>
+                    <a href={`mailto:${member.email}`} className="text-[10px] text-gray-500 font-mono mb-4 hover:text-green-600 transition-colors">
+                      {member.email}
+                    </a>
                     <span className={`mt-auto text-[9px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest transition-colors ${member.isLeader ? 'bg-green-100 text-green-700' : 'bg-gray-50 text-gray-600 group-hover:bg-green-100 group-hover:text-green-700'}`}>
                       {member.role}
                     </span>
@@ -562,7 +588,7 @@ export default function Home() {
             </div>
           </FadeIn>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projectReferences.map((ref, i) => (
               <FadeIn key={ref.id} delay={i * 0.1}>
                 <div className="p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-green-300 hover:shadow-md transition-all duration-300 group h-full flex flex-col">
