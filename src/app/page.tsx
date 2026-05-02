@@ -50,6 +50,37 @@ export default function Home() {
     { name: 'MobileNetV2 (AI)', category: 'Machine Learning' }
   ];
 
+  const projectReferences = [
+    {
+      id: 1,
+      authors: 'F. Tian',
+      title: 'An agri-food supply chain traceability system for China based on RFID & blockchain technology',
+      year: '2016',
+      category: 'Blockchain Traceability'
+    },
+    {
+      id: 2,
+      authors: 'S. Kamilaris and F. X. Prenafeta-Boldú',
+      title: 'The rise of blockchain technology in agriculture and food supply chains',
+      year: '2019',
+      category: 'Agricultural Tech'
+    },
+    {
+      id: 3,
+      authors: 'Wahidur Rahman et al.',
+      title: 'Automated Detection of Harmful Insects in Agriculture: A Smart Framework Leveraging IoT, Machine Learning, and Blockchain',
+      year: '2024',
+      category: 'IoT & AI'
+    },
+    {
+      id: 4,
+      authors: 'Y. Yang et al.',
+      title: 'Monitoring spatiotemporal expansion dynamics of short-rotation eucalyptus plantations over large scales using Landsat time-series data',
+      year: '2024',
+      category: 'Geospatial Mapping'
+    }
+  ];
+
  return (
     <main className="flex flex-col min-h-screen overflow-hidden">
       
@@ -78,8 +109,7 @@ export default function Home() {
           </div>
         </FadeIn>
         
-        {/* --- NEW PROJECT ABSTRACT --- */}
-        {/* --- PROJECT ABSTRACT (SHORTENED) --- */}
+        {/* --- PROJECT ABSTRACT --- */}
         <FadeIn delay={0.3}>
           <div className="relative bg-white/60 backdrop-blur-md border border-gray-200 p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow max-w-4xl mx-auto mb-14 text-left">
             <h3 className="text-sm font-black text-green-600 uppercase tracking-widest mb-3 border-b border-green-200/50 pb-2 inline-block">
@@ -216,7 +246,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- 3. CORE OBJECTIVE --- */}
+      {/* --- 4. CORE OBJECTIVE --- */}
       <section id="objectives" className="py-24 bg-black border-y border-gray-900 relative overflow-hidden">
         <div className="container mx-auto px-6 max-w-4xl text-center relative z-10">
           <FadeIn>
@@ -231,7 +261,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- 4. METHODOLOGY & ARCHITECTURE --- */}
+      {/* --- 5. METHODOLOGY & ARCHITECTURE --- */}
       <section id="methodology" className="py-24 md:py-32 bg-white border-t border-gray-100 relative overflow-hidden">
         <div className="container mx-auto px-6 max-w-7xl relative z-10">
           <FadeIn>
@@ -274,7 +304,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- 5. TECHNOLOGIES --- */}
+      {/* --- 6. TECHNOLOGIES --- */}
       <section id="technologies" className="py-20 bg-black border-y border-gray-900">
         <div className="container mx-auto px-6 text-center max-w-5xl">
           <FadeIn>
@@ -288,8 +318,7 @@ export default function Home() {
         </div>
       </section>
 
-      
-   {/* --- 7. PROJECT MILESTONES --- */}
+      {/* --- 7. PROJECT MILESTONES --- */}
       <section id="milestones" className="py-16 md:py-20 bg-white border-t border-gray-100 relative overflow-hidden">
         <div className="container mx-auto px-6 max-w-5xl relative z-10">
           <FadeIn>
@@ -317,10 +346,9 @@ export default function Home() {
               { id: 'research-paper', title: 'Research Paper', date: 'May 2026', marks: '10%', desc: 'Describes the project’s contribution to existing knowledge and literature review.', isCompleted: false }
             ].map((milestone, i) => (
               <FadeIn key={i} direction={i % 2 === 0 ? 'right' : 'left'}>
-                {/* Added id here and scroll-mt-28 so the sticky nav doesn't cover the title when anchored */}
                 <div id={milestone.id} className={`scroll-mt-28 relative flex flex-col md:flex-row items-center ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                   
-                  {/* Timeline Dot (Green check for completed, Gray clock for pending) */}
+                  {/* Timeline Dot */}
                   <div className={`absolute left-[-21px] md:static md:left-auto w-10 h-10 rounded-full border-4 border-white shadow-md flex items-center justify-center shrink-0 z-10 transition-colors duration-300 ${milestone.isCompleted ? 'bg-green-500' : 'bg-gray-100'}`}>
                     {milestone.isCompleted ? (
                       <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
@@ -354,7 +382,7 @@ export default function Home() {
         </div>
       </section>
 
-   {/* --- 8. DOWNLOADS --- */}
+      {/* --- 8. DOWNLOADS --- */}
       <section id="downloads" className="py-24 bg-gray-50 border-t border-gray-200">
         <div className="container mx-auto px-6 max-w-6xl">
           <FadeIn>
@@ -374,8 +402,6 @@ export default function Home() {
               { title: 'Progress Presentation I', type: 'Slides (PPTX)', file: '/documents/25-26J-157 PP1 Presentation Slides.pptx' },
               { title: 'Progress Presentation II', type: 'Slides (PPTX)', file: '/documents/25-26J-157 - PP2 presentation.pptx' },
               { title: 'Final Presentation', type: 'Slides (PPTX)', file: '/documents/Final Presentation.pptx' },
-              
-              // --- NEW: CHECKLIST DOCUMENTS (MULTI-FILE) ---
               { 
                 title: 'Checklist Documents', 
                 type: '4 PDF Reports', 
@@ -389,10 +415,7 @@ export default function Home() {
             ].map((doc, i) => (
               <FadeIn key={i} delay={i * 0.05}>
                 
-                {/* Condition: Multi-file Card vs Single-file Card */}
                 {doc.files ? (
-                  
-                  // --- MULTI-FILE CARD LAYOUT (For Checklist) ---
                   <div className="p-6 bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg hover:border-green-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full group">
                     <div>
                       <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4 border bg-gray-50 text-gray-400 border-gray-100 group-hover:bg-green-50 group-hover:text-green-500 group-hover:border-green-200 transition-colors">
@@ -420,8 +443,6 @@ export default function Home() {
                   </div>
 
                 ) : (
-
-                  // --- STANDARD SINGLE-FILE CARD LAYOUT ---
                   <a 
                     href={doc.file ? `/oudra-dss${doc.file}` : '#'}
                     download={!!doc.file} 
@@ -451,16 +472,14 @@ export default function Home() {
                       <svg className={`w-4 h-4 transition-colors ${doc.file ? 'text-gray-300 group-hover:text-green-500' : 'text-gray-200'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                     </div>
                   </a>
-
                 )}
-
               </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
-      {/* --- 6. TEAM --- */}
+      {/* --- 9. TEAM --- */}
       <section id="team" className="py-24 md:py-32 bg-gray-50 border-t border-gray-200">
         <div className="container mx-auto px-6 max-w-6xl">
           <FadeIn>
@@ -499,10 +518,10 @@ export default function Home() {
             <FadeIn><h3 className="text-2xl font-black text-gray-900 mb-8 text-center">Team Members</h3></FadeIn>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { name: 'A.G.T. WIJESINGHE', id: 'IT22319142', role: 'Tree Tracking', img: wijesingheImg, isLeader: true, linkedin: 'https://www.linkedin.com/in/thathsaraniwijesinghe/' },
-                { name: 'D.N. DEHIGOLLA', id: 'IT22123886', role: 'IoT Network', img: dehigollaImg, isLeader: false, linkedin: 'https://www.linkedin.com/in/navodya-dehigolla-82bb45287/' },
-                { name: 'R.P.C.A. AMARASOORIYA', id: 'IT22123640', role: 'AI Detection', img: amarasooriyaImg, isLeader: false, linkedin: 'https://www.linkedin.com/in/chalani-amarasooriya-531524285/' },
-                { name: 'T.A.C.S. THENNAKOON', id: 'IT22310996', role: 'Blockchain',img: ThennakoonImg, isLeader: false, linkedin: 'https://www.linkedin.com/in/sahanya-thennakoon-83996a2a9/' }
+                { name: 'A.G.T. WIJESINGHE', email: 'thathsaraniwijesinghe2001@gmail.com', role: 'Tree Tracking', img: wijesingheImg, isLeader: true, linkedin: 'https://www.linkedin.com/in/thathsaraniwijesinghe/' },
+                { name: 'D.N. DEHIGOLLA', email: 'navodyadehogolla@gmail.com', role: 'IoT Network', img: dehigollaImg, isLeader: false, linkedin: 'https://www.linkedin.com/in/navodya-dehigolla-82bb45287/' },
+                { name: 'R.P.C.A. AMARASOORIYA', email: 'chalani.am810@gmail.com', role: 'AI Detection', img: amarasooriyaImg, isLeader: false, linkedin: 'https://www.linkedin.com/in/chalani-amarasooriya-531524285/' },
+                { name: 'T.A.C.S. THENNAKOON', email: 'sahee617@gmail.com', role: 'Blockchain',img: ThennakoonImg, isLeader: false, linkedin: 'https://www.linkedin.com/in/sahanya-thennakoon-83996a2a9/' }
               ].map((member, i) => (
                 <FadeIn key={i} delay={i * 0.1}>
                   <div className={`relative text-center bg-white p-5 md:p-6 rounded-3xl border transition-all duration-300 group flex flex-col items-center h-full ${member.isLeader ? 'border-green-400 shadow-lg shadow-green-500/10 hover:-translate-y-2' : 'border-gray-200 shadow-sm hover:border-green-300 hover:shadow-xl hover:-translate-y-2'}`}>
@@ -521,7 +540,7 @@ export default function Home() {
                         <svg className="w-[14px] h-[14px]" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                       </a>
                     </div>
-                    <p className="text-[10px] text-gray-500 font-mono mb-4">{member.id}</p>
+                    <p className="text-[10px] text-gray-500 font-mono mb-4">{member.email}</p>
                     <span className={`mt-auto text-[9px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest transition-colors ${member.isLeader ? 'bg-green-100 text-green-700' : 'bg-gray-50 text-gray-600 group-hover:bg-green-100 group-hover:text-green-700'}`}>
                       {member.role}
                     </span>
@@ -533,7 +552,34 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- 9. CONTACT --- */}
+      {/* --- 10. REFERENCES --- */}
+      <section id="references" className="py-24 bg-white border-t border-gray-200">
+        <div className="container mx-auto px-6 max-w-6xl">
+          <FadeIn>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">Core References</h2>
+              <p className="text-green-500 font-bold uppercase tracking-widest text-xs">Academic & Industry Literature</p>
+            </div>
+          </FadeIn>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {projectReferences.map((ref, i) => (
+              <FadeIn key={ref.id} delay={i * 0.1}>
+                <div className="p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-green-300 hover:shadow-md transition-all duration-300 group h-full flex flex-col">
+                  <div className="flex items-start justify-between mb-4">
+                    <span className="text-[10px] font-bold px-3 py-1 bg-green-100 text-green-700 rounded-full uppercase tracking-widest">{ref.category}</span>
+                    <span className="text-xs font-black text-gray-400">[{ref.id}]</span>
+                  </div>
+                  <h4 className="text-base font-bold text-gray-900 mb-2 leading-snug group-hover:text-green-600 transition-colors">{ref.title}</h4>
+                  <p className="text-sm text-gray-500 mt-auto">{ref.authors} ({ref.year})</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- 11. CONTACT --- */}
       <section id="contact" className="py-24 bg-black relative overflow-hidden border-t border-gray-900">
         <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[150px]"></div>
         
@@ -543,7 +589,6 @@ export default function Home() {
             <h2 className="text-gray-100 text-4xl md:text-5xl font-black mb-8 tracking-tight">
               Get In <span className="text-green-500">Touch.</span>
             </h2>
-            {/* Changed text-gray-600 back to text-gray-400 here so it shows up on the black background! */}
             <p className="text-gray-400 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
               For inquiries regarding the Oudra DSS, agricultural investment, or academic collaboration.
             </p>
